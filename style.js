@@ -1,8 +1,6 @@
-const api =
-  "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether,binancecoin&vs_currencies=usd";
 const block = document.querySelector(".box");
-const time = setInterval(money, 10000)
 function money() {
+  const api = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether,binancecoin&vs_currencies=usd&${Date.now()}`;
   fetch(api)
     .then((res) => res.json())
     .then((pro) => {
@@ -38,3 +36,4 @@ function money() {
   `;
     });
 }
+setInterval(money, 15000);
